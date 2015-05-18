@@ -19,8 +19,8 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       custom
  * Domain Path:       /languages
- * GitHub Plugin URI: 
- * GitHub Branch:     
+ * GitHub Plugin URI: https://github.com/Fulcrum-Creatives/fc-wp-framework
+ * GitHub Branch:     master
  */
 
 // If this file is called directly, abort.
