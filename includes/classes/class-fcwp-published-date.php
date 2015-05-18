@@ -65,7 +65,6 @@ if( !class_exists( 'FCPW_Published_Date' ) ) {
 				'modified_class'            => 'time__modified updated',
 				'modified_attr'             => 'datetime="%3$s"',
 				'modified_text'             => 'Modifided On: '
-				
 			);
 	        $this->args = array_merge( $defaults, $this->args );
 		}
