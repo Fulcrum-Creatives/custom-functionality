@@ -72,10 +72,7 @@ if( !class_exists( 'FCWP_Display_Author' ) ) {
 						   </' . $this->args['container'] . '>';
 			} else {
 				$string = '<' . $this->args['container'] . ' ' . $container_id . ' ' . $container_class  . ' ' . $container_attr . '>' .
-						  esc_html__( $text, FCWP_TAXDOMAIN ) . '
-							<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" ' . $link_id . ' ' . $link_class  . ' ' . $link_attr . '>' . 
-								esc_html( get_the_author() ) . '
-							</a>
+						  	esc_html__( $text, FCWP_TAXDOMAIN ) . '<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" ' . $link_id . ' ' . $link_class  . ' ' . $link_attr . '>' . esc_html( get_the_author() ) . '</a>
 					      </' . $this->args['container'] . '>';
 			}
 
