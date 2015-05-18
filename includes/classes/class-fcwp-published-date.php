@@ -88,7 +88,7 @@ if( !class_exists( 'FCPW_Published_Date' ) ) {
 			$modified_container_attr   = ( !empty( $this->args['modified_container_attr'] ) ? $this->args['modified_container_attr'] : "" );
 			$published_text            = ( !empty( $this->args['published_text'] ) ? $this->args['published_text'] : "" );
 			$modified_text             = ( !empty( $this->args['modified_text'] ) ? $this->args['modified_text'] : "" );
-			$string               = '';
+			$string                    = '';
 			
 			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) && $this->args[ 'show_modified' ] == true ) {
 				$string = '<' . $this->args['published_container'] . ' ' . $published_container_id . ' ' . $published_container_class  . ' ' . $published_container_attr . '>' .
