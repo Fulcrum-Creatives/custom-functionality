@@ -1,12 +1,48 @@
 <?php
 /**
+ * Archive Title
+ * @since 0.0.1
+ */
+if( !function_exists( 'fcwp_archive_title' ) ) :
+	function fcwp_archive_title( $args = array() ) {
+		new FCWP_Archive_Title(  $args );
+	}
+endif;
+
+/**
+ * Display Author
+ * @since 0.0.1
+ */
+if( !function_exists( 'fcwp_display_author' ) ) :
+	function fcwp_display_author( $args = array() ) {
+		new FCWP_Display_Author(  $args );
+	}
+endif;
+
+/**
+ * Link Pages
+ * @since 0.0.1
+ */
+if( !function_exists( 'fcwp_link_pages' ) ) :
+	function fcwp_link_pages( $args = array() ) {
+		new FCWP_Link_Pages(  $args );
+	}
+endif;
+
+/**
+ * List Terms
+ * @since 0.0.1
+ */
+if( !function_exists( 'fcwp_list_terms' ) ) :
+	function fcwp_list_terms( $args = array() ) {
+		new FCWP_List_Terms(  $args );
+	}
+endif;
+
+/**
  * Pagination
  *
  * Choose default, split, and numbered for listings pagination
- *
- * @param $type the type of pagination
- * @param $args the arguments
- * 
  * @since 0.0.1
  */
 if( !function_exists( 'fcwp_pagination' ) ) :
@@ -17,7 +53,6 @@ endif;
 
 /**
  * Post Pagination
- *
  * @since 0.0.1
  */
 if( !function_exists( 'fcwp_posts_pagination ' ) ) :
@@ -27,34 +62,11 @@ if( !function_exists( 'fcwp_posts_pagination ' ) ) :
 endif;
 
 /**
- * Link Pages
- *
- * @since 0.0.1
- */
-if( !function_exists( 'fcwp_link_pages' ) ) :
-	function fcwp_link_pages( $args = array() ) {
-		new FCWP_Link_Pages(  $args );
-	}
-endif;
-
-/**
  * Published Date
- *
  * @since 0.0.1
  */
 if( !function_exists( 'fcwp_published_date' ) ) :
 	function fcwp_published_date( $args = array() ) {
 		new FCPW_Published_Date(  $args );
-	}
-endif;
-
-/**
- * Display Author
- *
- * @since 0.0.1
- */
-if( !function_exists( 'fcwp_display_author' ) ) :
-	function fcwp_display_author( $args = array() ) {
-		new FCWP_Display_Author(  $args );
 	}
 endif;

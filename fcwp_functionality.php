@@ -115,6 +115,8 @@ if( !class_exists( 'FCWP_Custome_Functionality' ) ) {
 			require_once FCWP_PL_PLUGIN_DIR . 'admin/classes/class-fcwp-rename-post.php';
 			require_once FCWP_PL_PLUGIN_DIR . 'admin/class-fcwp-admin-init.php';
 
+			require_once FCWP_PL_PLUGIN_DIR . 'includes/classes/class-fcwp-archive-title.php';
+			require_once FCWP_PL_PLUGIN_DIR . 'includes/classes/class-fcwp-list-terms.php';
 			require_once FCWP_PL_PLUGIN_DIR . 'includes/classes/class-fcwp-display-author.php';
 			require_once FCWP_PL_PLUGIN_DIR . 'includes/classes/class-fcwp-published-date.php';
 			require_once FCWP_PL_PLUGIN_DIR . 'includes/classes/class-fcwp-link-pages.php';
