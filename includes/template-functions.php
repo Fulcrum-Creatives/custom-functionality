@@ -47,3 +47,14 @@ if( !function_exists( 'fcwp_published_date' ) ) :
 		new FCPW_Published_Date(  $args );
 	}
 endif;
+
+/**
+ * Display Author
+ *
+ * @since 0.0.1
+ */
+if( !function_exists( 'fcwp_display_author' ) ) :
+	function fcwp_display_author( $args = array() ) {
+		new FCWP_Display_Author(  $args );
+	}
+endif;
