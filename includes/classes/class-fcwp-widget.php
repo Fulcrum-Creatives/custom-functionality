@@ -2,14 +2,14 @@
 /**
  * Custom widget for displaying post archives
  *
- * @package     Custom
- * @subpackage  Custom/includes
+ * @package     FCWP
+ * @subpackage  FCWP/includes
  * @copyright   Copyright (c) 2014, Jason Witt
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       0.0.1
  * @author      Jason Witt <contact@jawittdesigns.com>
  */
-class Custom_Widget extends WP_Widget {
+class FCWP_Widget extends WP_Widget {
 
 	/**
 	 * Register widget with WordPress.
@@ -18,7 +18,7 @@ class Custom_Widget extends WP_Widget {
 		parent::__construct(
 	 		'custom_widget', // Base ID
 			'Custom Widget', // Name
-			array( 'description' => __( 'List Archives with Search', CUSTOM_TEXTDOMAIN ), ) // Args
+			array( 'description' => __( 'List Archives with Search', FCWP_PL_TEXTDOMAIN ), ) // Args
 		);
 	}
 

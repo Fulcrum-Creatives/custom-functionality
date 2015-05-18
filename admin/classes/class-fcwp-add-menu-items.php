@@ -2,16 +2,16 @@
 /**
  * Add Custom Menu Items
  *
- * @package     Custom
- * @subpackage  Custom/Admin
+ * @package     FCWP
+ * @subpackage  FCWP/Admin
  * @copyright   Copyright (c) 2014, Jason Witt
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       0.0.1
  * @author      Jason Witt <contact@jawittdesigns.com>
  */
 
-if( !class_exists( 'Custom_Add_Menu_Items' ) ) {
-	class Custom_Add_Menu_Items {
+if( !class_exists( 'FCWP_Add_Menu_Items' ) ) {
+	class FCWP_Add_Menu_Items {
 
 		/**
 		 * Initialize the class

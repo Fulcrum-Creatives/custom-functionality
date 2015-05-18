@@ -3,7 +3,7 @@
  * Add custom admin bar links
  *
  * example:
- * 		$new_link = new Custom_Add_Admin_Bar_Link( array(
+ * 		$new_link = new FCWP_Add_Admin_Bar_Link( array(
  * 			'id'     => false, //The ID of the node
  * 			'title'  => false, // The text that will be visible in the Toolbar
  * 			'parent' => false, // The ID of the parent node
@@ -21,16 +21,16 @@
  * 		 	) 
  * 		);
  *
- * @package     Custom
- * @subpackage  Custom/Admin
+ * @package     FCWP
+ * @subpackage  FCWP/Admin
  * @copyright   Copyright (c) 2014, Jason Witt
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       0.0.1
  * @author      Jason Witt <contact@jawittdesigns.com>
  */
 
-if( !class_exists( 'Custom_Add_Admin_Bar_Link' ) ) {
-	class Custom_Add_Admin_Bar_Link {
+if( !class_exists( 'FCWP_Add_Admin_Bar_Link' ) ) {
+	class FCWP_Add_Admin_Bar_Link {
 
 		/**
 		 * Initialize the class

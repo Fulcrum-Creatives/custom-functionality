@@ -2,16 +2,16 @@
 /**
  * Load admin CSS
  *
- * @package     Custom
- * @subpackage  Custom/includes
+ * @package     FCWP
+ * @subpackage  FCWP/includes
  * @copyright   Copyright (c) 2014, Jason Witt
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       0.0.1
  * @author      Jason Witt <contact@jawittdesigns.com>
  */
 
-if( !class_exists( 'Custom_Public_CSS' ) ) {
-	class Custom_Public_CSS {
+if( !class_exists( 'FCWP_Public_CSS' ) ) {
+	class FCWP_Public_CSS {
 
 		/**
 		 * Initialize the class
@@ -23,7 +23,7 @@ if( !class_exists( 'Custom_Public_CSS' ) ) {
 		}
 
 		public function load_public_css() {
-			wp_enqueue_style( CUSTOM_PREFIX . '-public', CUSTOM_PLUGIN_URL . 'includes/css/public.css', array(), CUSTOM_VERSION, 'all' );
+			wp_enqueue_style( FCWP_PL_PREFIX . '-public', FCWP_PL_PLUGIN_URL . 'includes/css/public.css', array(), FCWP_PL_VERSION, 'all' );
 		}
 	}
 }

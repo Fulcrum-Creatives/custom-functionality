@@ -13,16 +13,16 @@
  * updates : Updates link
  * search: Search box
  *
- * @package     Custom
- * @subpackage  Custom/admin
+ * @package     FCWP
+ * @subpackage  FCWP/admin
  * @copyright   Copyright (c) 2014, Jason Witt
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       0.0.1
  * @author      Jason Witt <contact@jawittdesigns.com>
  */
 
-if( !class_exists( 'Custom_Remove_Admin_Bar_Link' ) ) {
-	class Custom_Remove_Admin_Bar_Link {
+if( !class_exists( 'FCWP_Remove_Admin_Bar_Link' ) ) {
+	class FCWP_Remove_Admin_Bar_Link {
 
 		/**
 		 * Initialize the class

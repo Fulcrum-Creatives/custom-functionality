@@ -2,16 +2,16 @@
 /**
  * Register Custom Taxonomies
  *
- * @package     Custom
- * @subpackage  Custom/includes
+ * @package     FCWP
+ * @subpackage  FCWP/includes
  * @copyright   Copyright (c) 2014, Jason Witt
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       0.0.1
  * @author      Jason Witt <contact@jawittdesigns.com>
  */
 
-if( !class_exists( 'Custom_Register_Taxonomies' ) ) {
-    class Custom_Register_Taxonomies {
+if( !class_exists( 'FCWP_Register_Taxonomies' ) ) {
+    class FCWP_Register_Taxonomies {
 
         /**
          * Post type to attach taxonomy to

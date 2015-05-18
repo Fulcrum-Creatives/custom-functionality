@@ -2,16 +2,16 @@
 /**
  * Admin Init
  *
- * @package     Custom
- * @subpackage  Custom/includes
+ * @package     FCWP
+ * @subpackage  FCWP/includes
  * @copyright   Copyright (c) 2014, Jason Witt
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       0.0.1
  * @author      Jason Witt <contact@jawittdesigns.com>
  */
 
-if( !class_exists( 'Custom_Admin_Init' ) ) {
-	class Custom_Admin_Init {
+if( !class_exists( 'FCWP_Admin_Init' ) ) {
+	class FCWP_Admin_Init {
 
 		/**
 		 * Initialize the class
@@ -34,7 +34,7 @@ if( !class_exists( 'Custom_Admin_Init' ) ) {
          * @return void
          */
 		protected function admin_css() {
-			new Custom_Admin_CSS();
+			new FCWP_Admin_CSS();
 		}
 
 		/**
@@ -45,7 +45,7 @@ if( !class_exists( 'Custom_Admin_Init' ) ) {
          * @return void
          */
 		protected function add_admin_bar_link() {
-			new Custom_Add_Admin_Bar_Link();
+			new FCWP_Add_Admin_Bar_Link();
 		}
 
 		/**
@@ -56,7 +56,7 @@ if( !class_exists( 'Custom_Admin_Init' ) ) {
          * @return void
          */
 		protected function remove_admin_bar_link() {
-			new Custom_Remove_Admin_Bar_Link();
+			new FCWP_Remove_Admin_Bar_Link();
 		}
 		
 		/**
@@ -67,7 +67,7 @@ if( !class_exists( 'Custom_Admin_Init' ) ) {
          * @return void
          */
 		protected function remove_customizer() {
-			new Custom_Remove_Customizer();
+			new FCWP_Remove_Customizer();
 		}
 
 		/**
@@ -78,7 +78,7 @@ if( !class_exists( 'Custom_Admin_Init' ) ) {
          * @return void
          */
 		protected function add_menu_items() {
-			new Custom_Add_Menu_Items();
+			new FCWP_Add_Menu_Items();
 		}
 	}
 }

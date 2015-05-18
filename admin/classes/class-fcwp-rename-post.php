@@ -2,16 +2,16 @@
 /**
  * Change the default Posts Menu item
  *
- * @package     Custom
- * @subpackage  Custom/Admin
+ * @package     FCWP
+ * @subpackage  FCWP/Admin
  * @copyright   Copyright (c) 2014, Jason Witt
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
  * @since       0.0.1
  * @author      Jason Witt <contact@jawittdesigns.com>
  */
 
-if( !class_exists( 'Custom_Rename_Post' ) ) {
-	class Custom_Rename_Post {
+if( !class_exists( 'FCWP_Rename_Post' ) ) {
+	class FCWP_Rename_Post {
 
 		/**
 		 * The new name for Posts
@@ -36,7 +36,7 @@ if( !class_exists( 'Custom_Rename_Post' ) ) {
 		 */
 		public function __construct( $name, $plural = '' ) {
 			$this->name   = strtolower( ucwords( str_replace( array( ' ', '-' ), '_', $name ) ) );
-	        $this->plural = ( !empty( $plural ) ? strtolower( ucwords( str_replace( array( ' ', '-' ), '_', $plural ) ) ) : $this->name ) );
+	        $this->plural = ( !empty( $plural ) ? strtolower( ucwords( str_replace( array( ' ', '-' ), '_', $plural ) ) ) : $this->name );
 			add_action( 'admin_menu', array( $this, 'post_label' ) );
 			add_action( 'init', array( $this, 'post_object' ) );
 		}
