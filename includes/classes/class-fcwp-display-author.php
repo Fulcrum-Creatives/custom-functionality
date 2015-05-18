@@ -57,14 +57,14 @@ if( !class_exists( 'FCWP_Display_Author' ) ) {
          * @return string the html output for the published time
 		 */
 		public function display() {
-			$container_id      = ( !empty( $this->args['container_id'] ) ? 'id="' . $this->args['container_id'] . '"' : "" );
-			$container_class   = ( !empty( $this->args['container_class'] ) ? 'class="' . $this->args['container_class'] . '"' : "" );
-			$container_attr    = ( !empty( $this->args['container_attr'] ) ? $this->args['container_attr'] : "" );
-			$text       = ( !empty( $this->args['text'] ) ? $this->args['text'] : "" );
-			$link_id    = ( !empty( $this->args['link_id'] ) ? 'id="' . $this->args['link_id'] . '"' : "" );
-			$link_class = ( !empty( $this->args['link_class'] ) ? 'class="' . $this->args['link_class'] . '"' : "" );
-			$link_attr  = ( !empty( $this->args['link_attr'] ) ? $this->args['link_attr'] : "" );
-			$string            = '';
+			$container_id    = ( !empty( $this->args['container_id'] ) ? 'id="' . $this->args['container_id'] . '"' : "" );
+			$container_class = ( !empty( $this->args['container_class'] ) ? 'class="' . $this->args['container_class'] . '"' : "" );
+			$container_attr  = ( !empty( $this->args['container_attr'] ) ? $this->args['container_attr'] : "" );
+			$text            = ( !empty( $this->args['text'] ) ? $this->args['text'] : "" );
+			$link_id         = ( !empty( $this->args['link_id'] ) ? 'id="' . $this->args['link_id'] . '"' : "" );
+			$link_class      = ( !empty( $this->args['link_class'] ) ? 'class="' . $this->args['link_class'] . '"' : "" );
+			$link_attr       = ( !empty( $this->args['link_attr'] ) ? $this->args['link_attr'] : "" );
+			$string          = '';
 			
 			if( $this->args['is_linked'] != true ) {
 				$string = '<' . $this->args['container'] . ' ' . $container_id . ' ' . $container_class  . ' ' . $container_attr . '>' .
