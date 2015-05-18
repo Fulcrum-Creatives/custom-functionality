@@ -21,7 +21,7 @@ if( !class_exists( 'FCPW_Published_Date' ) ) {
 		public function __construct( $args = array() ) {
 			$this->args = $args;
 			$this->arguments();
-			$this->published_date();
+			$this->display();
 		}
 
 		/**
@@ -76,7 +76,7 @@ if( !class_exists( 'FCPW_Published_Date' ) ) {
          * @access public
          * @return string the html output for the published time
 		 */
-		public function published_date() {
+		public function display() {
 			$container_id              = ( !empty( $this->args['container_id'] ) ? 'id="' . $this->args['container_id'] . '"' : "" );
 			$container_class           = ( !empty( $this->args['container_class'] ) ? 'class="' . $this->args['container_class'] . '"' : "" );
 			$container_attr            = ( !empty( $this->args['container_attr'] ) ? $this->args['container_attr'] : "" );
