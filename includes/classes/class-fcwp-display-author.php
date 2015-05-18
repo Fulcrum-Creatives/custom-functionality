@@ -36,15 +36,15 @@ if( !class_exists( 'FCWP_Display_Author' ) ) {
 		 */
 		private function arguments() {
 			$defaults = array(
-				'container'         => 'span',
-				'container_id'      => '',
-				'container_class'   => 'meta__author author vcard',
-				'container_attr'    => '',
-				'text'       => 'By: ',
-				'is_linked'         => true,
-				'link_id'    => '',
-				'link_class' => 'url fn n',
-				'link_attr'  => 'rel="bookmark"'
+				'container'       => 'span',
+				'container_id'    => '',
+				'container_class' => 'meta__author author vcard',
+				'container_attr'  => '',
+				'text'            => 'By: ',
+				'is_linked'       => true,
+				'link_id'         => '',
+				'link_class'      => 'url fn n',
+				'link_attr'       => 'rel="bookmark"'
 			);
 	        $this->args = array_merge( $defaults, $this->args );
 		}
