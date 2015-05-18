@@ -40,11 +40,11 @@ if( !class_exists( 'FCWP_Display_Author' ) ) {
 				'container_id'      => '',
 				'container_class'   => 'meta__author author vcard',
 				'container_attr'    => '',
-				'author_text'       => 'By: ',
+				'text'       => 'By: ',
 				'is_linked'         => true,
-				'author_link_id'    => '',
-				'author_link_class' => 'url fn n',
-				'author_link_attr'  => 'rel="bookmark"'
+				'link_id'    => '',
+				'link_class' => 'url fn n',
+				'link_attr'  => 'rel="bookmark"'
 			);
 	        $this->args = array_merge( $defaults, $this->args );
 		}
@@ -60,20 +60,20 @@ if( !class_exists( 'FCWP_Display_Author' ) ) {
 			$container_id      = ( !empty( $this->args['container_id'] ) ? 'id="' . $this->args['container_id'] . '"' : "" );
 			$container_class   = ( !empty( $this->args['container_class'] ) ? 'class="' . $this->args['container_class'] . '"' : "" );
 			$container_attr    = ( !empty( $this->args['container_attr'] ) ? $this->args['container_attr'] : "" );
-			$author_text       = ( !empty( $this->args['author_text'] ) ? $this->args['author_text'] : "" );
-			$author_link_id    = ( !empty( $this->args['author_link_id'] ) ? 'id="' . $this->args['author_link_id'] . '"' : "" );
-			$author_link_class = ( !empty( $this->args['author_link_class'] ) ? 'class="' . $this->args['author_link_class'] . '"' : "" );
-			$author_link_attr  = ( !empty( $this->args['author_link_attr'] ) ? $this->args['author_link_attr'] : "" );
+			$text       = ( !empty( $this->args['text'] ) ? $this->args['text'] : "" );
+			$link_id    = ( !empty( $this->args['link_id'] ) ? 'id="' . $this->args['link_id'] . '"' : "" );
+			$link_class = ( !empty( $this->args['link_class'] ) ? 'class="' . $this->args['link_class'] . '"' : "" );
+			$link_attr  = ( !empty( $this->args['link_attr'] ) ? $this->args['link_attr'] : "" );
 			$string            = '';
 			
 			if( $this->args['is_linked'] != true ) {
 				$string = '<' . $this->args['container'] . ' ' . $container_id . ' ' . $container_class  . ' ' . $container_attr . '>' .
-								esc_html__( $author_text, FCWP_TAXDOMAIN ) . esc_html( get_the_author() ) . '
+								esc_html__( $text, FCWP_TAXDOMAIN ) . esc_html( get_the_author() ) . '
 						   </' . $this->args['container'] . '>';
 			} else {
 				$string = '<' . $this->args['container'] . ' ' . $container_id . ' ' . $container_class  . ' ' . $container_attr . '>' .
-						  esc_html__( $author_text, FCWP_TAXDOMAIN ) . '
-							<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" ' . $author_link_id . ' ' . $author_link_class  . ' ' . $author_link_attr . '>' . 
+						  esc_html__( $text, FCWP_TAXDOMAIN ) . '
+							<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" ' . $link_id . ' ' . $link_class  . ' ' . $link_attr . '>' . 
 								esc_html( get_the_author() ) . '
 							</a>
 					      </' . $this->args['container'] . '>';
