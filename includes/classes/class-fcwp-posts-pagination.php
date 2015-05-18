@@ -34,6 +34,7 @@ if( !class_exists( 'FCWP_Posts_Pagination' ) ) {
 			}
 			add_filter( 'previous_post_link', array( $this, 'previous_posts_link_filter' ), 10, 5 );
 			add_filter( 'next_post_link', array( $this, 'next_posts_link_filter' ) );
+			$this->arguments();
 			$this->display();
 		}
 
@@ -85,7 +86,6 @@ if( !class_exists( 'FCWP_Posts_Pagination' ) ) {
          * @return string the html output for the pagination
 		 */
 		private function display() {
-			$this->arguments();
 			$container_id          = ( !empty( $this->args['container_id'] ) ? 'id="' . $this->args['container_id'] . '"' : "" );
 			$container_class       = ( !empty( $this->args['container_class'] ) ? 'class="' . $this->args['container_class'] . '"' : "" );
 			$container_attr        = ( !empty( $this->args['container_attr'] ) ? $this->args['container_attr'] : "" );

@@ -40,6 +40,7 @@ if( !class_exists( 'FCWP_Pagination' ) ) {
 			}
 			add_filter( 'previous_posts_link_attributes', array( $this, 'previous_posts_link_filter' ) );
 			add_filter( 'next_posts_link_attributes', array( $this, 'next_posts_link_filter' ) );
+			$this->arguments();
 			$this->display();
 			add_action( 'wp_footer', array( $this, 'load_public_js' ) );
 		}
@@ -113,7 +114,6 @@ if( !class_exists( 'FCWP_Pagination' ) ) {
          * @return string the html output for the pagination
 		 */
 		private function display() {
-			$this->arguments();
 			$container_id            = ( !empty( $this->args['container_id'] ) ? 'id="' . $this->args['container_id'] . '"' : "" );
 			$container_class         = ( !empty( $this->args['container_class'] ) ? 'class="' . $this->args['container_class'] . '"' : "" );
 			$container_attr          = ( !empty( $this->args['container_attr'] ) ? $this->args['container_attr'] : "" );

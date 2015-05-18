@@ -20,6 +20,7 @@ if( !class_exists( 'FCPW_Published_Date' ) ) {
 		 */
 		public function __construct( $args = array() ) {
 			$this->args = $args;
+			$this->arguments();
 			$this->published_date();
 		}
 
@@ -36,6 +37,8 @@ if( !class_exists( 'FCPW_Published_Date' ) ) {
 			$defaults = array(
 				'format'                    => 'F j, Y',
 				'show_modified'             => false,
+				'is_linked_published'       => true,
+				'is_linked_modified'        => true,
 				'container'                 => 'span',
 				'container_id'              => '',
 				'container_class'           => 'meta__date',
@@ -71,46 +74,33 @@ if( !class_exists( 'FCPW_Published_Date' ) ) {
 		 * Display the published time
 		 *
 		 * @since 0.0.1
-         * @access private
+         * @access public
          * @return string the html output for the published time
 		 */
 		public function published_date() {
-			$this->arguments();
 			$container_id              = ( !empty( $this->args['container_id'] ) ? 'id="' . $this->args['container_id'] . '"' : "" );
 			$container_class           = ( !empty( $this->args['container_class'] ) ? 'class="' . $this->args['container_class'] . '"' : "" );
 			$container_attr            = ( !empty( $this->args['container_attr'] ) ? $this->args['container_attr'] : "" );
 			$published_container_id    = ( !empty( $this->args['published_container_id'] ) ? 'id="' . $this->args['published_container_id'] . '"' : "" );
 			$published_container_class = ( !empty( $this->args['published_container_class'] ) ? 'class="' . $this->args['published_container_class'] . '"' : "" );
 			$published_container_attr  = ( !empty( $this->args['published_container_attr'] ) ? $this->args['published_container_attr'] : "" );
-			$published_link_id         = ( !empty( $this->args['published_link_id'] ) ? 'id="' . $this->args['published_link_id'] . '"' : "" );
-			$published_link_class      = ( !empty( $this->args['published_link_class'] ) ? 'class="' . $this->args['published_link_class'] . '"' : "" );
-			$published_link_attr       = ( !empty( $this->args['published_link_attr'] ) ? $this->args['published_link_attr'] : "" );
 			$modified_container_id     = ( !empty( $this->args['modified_container_id'] ) ? 'id="' . $this->args['modified_container_id'] . '"' : "" );
 			$modified_container_class  = ( !empty( $this->args['modified_container_class'] ) ? 'class="' . $this->args['modified_container_class'] . '"' : "" );
 			$modified_container_attr   = ( !empty( $this->args['modified_container_attr'] ) ? $this->args['modified_container_attr'] : "" );
-			$modified_link_id          = ( !empty( $this->args['modified_link_id'] ) ? 'id="' . $this->args['modified_link_id'] . '"' : "" );
-			$modified_link_class       = ( !empty( $this->args['modified_link_class'] ) ? 'class="' . $this->args['modified_link_class'] . '"' : "" );
-			$modified_link_attr        = ( !empty( $this->args['modified_link_attr'] ) ? $this->args['modified_link_attr'] : "" );
-			$published_id              = ( !empty( $this->args['published_id'] ) ? 'id="' . $this->args['published_id'] . '"' : "" );
-			$published_class           = ( !empty( $this->args['published_class'] ) ? 'class="' . $this->args['published_class'] . '"' : "" );
-			$published_attr            = ( !empty( $this->args['published_attr'] ) ? $this->args['published_attr'] : "" );
 			$published_text            = ( !empty( $this->args['published_text'] ) ? $this->args['published_text'] : "" );
-			$modified_id               = ( !empty( $this->args['modified_id'] ) ? 'id="' . $this->args['modified_id'] . '"' : "" );
-			$modified_class            = ( !empty( $this->args['modified_class'] ) ? 'class="' . $this->args['modified_class'] . '"' : "" );
-			$modified_attr             = ( !empty( $this->args['modified_attr'] ) ? $this->args['modified_attr'] : "" );
 			$modified_text             = ( !empty( $this->args['modified_text'] ) ? $this->args['modified_text'] : "" );
 			$time_string               = '';
 			
 			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) && $this->args[ 'show_modified' ] == true ) {
 				$time_string = '<' . $this->args['published_container'] . ' ' . $published_container_id . ' ' . $published_container_class  . ' ' . $published_container_attr . '>' .
-									esc_html__( $published_text, FCWP_TAXDOMAIN ) . '<a href="' . esc_url( get_permalink() ) . '" ' . $published_link_id . ' ' . $published_link_class  . ' ' . $published_link_attr . '><time ' . $published_id . ' ' . $published_class . ' ' . $published_attr . '>%2$s</time></a>
+									esc_html__( $published_text, FCWP_TAXDOMAIN ) . $this->is_linked_published() . '
 								</' . $this->args['published_container'] . '>
 								<' . $this->args['modified_container'] . ' ' . $modified_container_id . ' ' . $modified_container_class  . ' ' . $modified_container_attr . '>' .
-									esc_html__( $modified_text, FCWP_TAXDOMAIN ) . ' <a href="' . esc_url( get_permalink() ) . '" ' . $modified_link_id . ' ' . $modified_link_class  . ' ' . $modified_link_attr . '><time ' . $modified_id . ' ' . $modified_class . ' ' . $modified_attr . '>%4$s</time></a>
+									esc_html__( $modified_text, FCWP_TAXDOMAIN ) . $this->is_linked_modified() . '
 								</' . $this->args['modified_container'] . '>';
 			} else {
 				$time_string = '<' . $this->args['published_container'] . ' ' . $published_container_id . ' ' . $published_container_class  . ' ' . $published_container_attr . '>' .
-									esc_html__( $published_text, FCWP_TAXDOMAIN ) . '<a href="' . esc_url( get_permalink() ) . '" ' . $published_link_id . ' ' . $published_link_class  . ' ' . $published_link_attr . '><time ' . $published_id . ' ' . $published_class . ' ' . $published_attr . '>%2$s</time></a>
+									esc_html__( $published_text, FCWP_TAXDOMAIN ) . $this->is_linked_published() . '
 								</' . $this->args['published_container'] . '>';
 			}
 			$time_string = sprintf( $time_string,
@@ -120,6 +110,56 @@ if( !class_exists( 'FCPW_Published_Date' ) ) {
 				esc_html( get_the_modified_date( $this->args['format'] ) )
 			);
 			echo '<' . $this->args['container'] . ' ' . $container_id . ' ' . $container_class  . ' ' . $container_attr . '>' . $time_string . '</' . $this->args['container'] . '>';
+		}
+
+		/**
+		 * Determine if date published is linked
+		 *
+		 * @since 0.0.1
+	     * @access private
+	     * @return string the date published
+		 */
+		private function is_linked_published() {
+			$published_id         = ( !empty( $this->args['published_id'] ) ? 'id="' . $this->args['published_id'] . '"' : "" );
+			$published_class      = ( !empty( $this->args['published_class'] ) ? 'class="' . $this->args['published_class'] . '"' : "" );
+			$published_attr       = ( !empty( $this->args['published_attr'] ) ? $this->args['published_attr'] : "" );
+			$published_link_id    = ( !empty( $this->args['published_link_id'] ) ? 'id="' . $this->args['published_link_id'] . '"' : "" );
+			$published_link_class = ( !empty( $this->args['published_link_class'] ) ? 'class="' . $this->args['published_link_class'] . '"' : "" );
+			$published_link_attr  = ( !empty( $this->args['published_link_attr'] ) ? $this->args['published_link_attr'] : "" );
+			$string               = '';
+
+			if( $this->args['is_linked_published'] != true ) {
+				$string = '<time ' . $published_id . ' ' . $published_class . ' ' . $published_attr . '>%2$s</time>';
+			} else {
+				$string = '<a href="' . esc_url( get_permalink() ) . '" ' . $published_link_id . ' ' . $published_link_class  . ' ' . $published_link_attr . '><time ' . $published_id . ' ' . $published_class . ' ' . $published_attr . '>%2$s</time></a>';
+			}
+
+			return $string;
+		}
+
+		/**
+		 * Determine if date midified is linked
+		 *
+		 * @since 0.0.1
+	     * @access private
+	     * @return string the date modified
+		 */
+		private function is_linked_modified() {
+			$modified_id         = ( !empty( $this->args['modified_id'] ) ? 'id="' . $this->args['modified_id'] . '"' : "" );
+			$modified_class      = ( !empty( $this->args['modified_class'] ) ? 'class="' . $this->args['modified_class'] . '"' : "" );
+			$modified_attr       = ( !empty( $this->args['modified_attr'] ) ? $this->args['modified_attr'] : "" );
+			$modified_link_id    = ( !empty( $this->args['modified_link_id'] ) ? 'id="' . $this->args['modified_link_id'] . '"' : "" );
+			$modified_link_class = ( !empty( $this->args['modified_link_class'] ) ? 'class="' . $this->args['modified_link_class'] . '"' : "" );
+			$modified_link_attr  = ( !empty( $this->args['modified_link_attr'] ) ? $this->args['modified_link_attr'] : "" );
+			$string              = '';
+
+			if( $this->args['is_linked_modified'] != true ) {
+				$string = '<time ' . $modified_id . ' ' . $modified_class . ' ' . $modified_attr . '>%2$s</time>';
+			} else {
+				$string = '<a href="' . esc_url( get_permalink() ) . '" ' . $modified_link_id . ' ' . $modified_link_class  . ' ' . $modified_link_attr . '><time ' . $modified_id . ' ' . $modified_class . ' ' . $modified_attr . '>%2$s</time></a>';
+			}
+
+			return $string;
 		}
 	}
 }
