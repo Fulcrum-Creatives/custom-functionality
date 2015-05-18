@@ -24,6 +24,7 @@ if( !class_exists( 'FCWP_Link_pages' ) ) {
 		 * Initialize the class
 		 *
 		 * @since 0.0.1
+		 * @param array $args the class arguments
 		 */
 		public function __construct( $args = array() ) {
 			$this->args = $args;

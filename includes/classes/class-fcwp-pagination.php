@@ -31,6 +31,7 @@ if( !class_exists( 'FCWP_Pagination' ) ) {
 		 * Initialize the class
 		 *
 		 * @since 0.0.1
+		 * @param array $args the class arguments
 		 */
 		public function __construct( $type, $args = array() ) {
 			$this->type = $type;
